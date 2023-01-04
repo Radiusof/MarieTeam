@@ -1,4 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-hello
+{{dump(users)}}
+{% for user in users %}
+    {{ user.email }}
+{% endfor %}
+test
 {% endblock %}
