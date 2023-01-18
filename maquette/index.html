@@ -18,7 +18,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Availability---Manage-availability-bookings-appointments_v1.css">
     <link rel="stylesheet" href="assets/css/Bootstrap-Calendar.css">
+    <link rel="stylesheet" href="https://djpsoftwarecdn.azureedge.net/availabilitycss-v1/availability.min.css">
     <link rel="stylesheet" href="assets/css/Login-Form-Basic-icons.css">
     <link rel="stylesheet" href="assets/css/Pricing-Clean-icons.css">
     <link rel="stylesheet" href="assets/css/untitled.css">
@@ -191,6 +193,18 @@
                 </div>
             </div>
         </div>
+        <div class="container content-wrapper"><div class="availability-container">
+    <div class="availability-guidance">
+        <p>Verifier les disponibilités</p>
+    </div>
+    <div class="availability-wrapper" data-customer-id="8DCFD3C1-F06A-2DF5-AC70-EF4FCEA97E0F" data-category="getCategoryAsync" data-contact-url="contact.html"><label class="mb-2" for="check-availability">Les réservations peuvent se faire jusqu'à 100 jours à l'avance.</label><div class="availability-input-wrapper"><div><label class="d-block" for="selected-start-date">Jour et heure de départ</label><input id="selected-start-date" type="datetime-local" onchange="removeDataPlusFeedback()" min="2022-11-23T19:34" max="2023-03-03T19:34"></div><div><label class="d-block" for="selected-end-date">Liaisons</label><input id="selected-liaison" type="browsers" onchange="removeDataPlusFeedback()"><datalist id="liaisons">
+    <option value="Belle-île">
+    <option value="Houat">
+    <option value="Hoedic">
+    <option value="Sauzon">
+    <option value="Groix">
+  </datalist></div><button id="check-availability" class="btn btn-primary" type="button" onclick="checkAvailability()">Verifier</button></div><div class="feedback-wrapper mt-3"></div></div>
+</div></div>
         <section class="py-4 py-xl-5">
             <div class="container">
                 <div class="text-white bg-primary border rounded border-0 border-primary d-flex flex-column justify-content-between flex-lg-row p-4 p-md-5">
@@ -270,6 +284,7 @@
     </footer>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
+    <script src="https://djpsoftwarecdn.azureedge.net/availabilityjs-v1/availability.min.js"></script>
 </body>
 
 </html>
