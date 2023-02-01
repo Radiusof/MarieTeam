@@ -2,46 +2,25 @@
 
 namespace App\Entity;
 
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Traversée
- *
- */
-#[ORM\Table(name: 'traversée')]
+#[ORM\Table(name: 'traversee')]
 #[ORM\Index(name: 'id_bateau', columns: ['id_bateau'])]
 #[ORM\Index(name: 'id_liaison', columns: ['id_liaison'])]
 #[ORM\Entity]
-class Traversée
+class Traversee
 {
-    /**
-     * @var int
-     *
-     */
     #[ORM\Column(name: 'id_traversee', type: 'integer', nullable: false)]
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     private $idTraversee;
 
-    /**
-     * @var \DateTime
-     *
-     */
     #[ORM\Column(name: 'date_depart', type: 'datetime', nullable: false)]
     private $dateDepart;
 
-    /**
-     * @var int
-     *
-     */
     #[ORM\Column(name: 'id_liaison', type: 'integer', nullable: false)]
     private $idLiaison;
 
-    /**
-     * @var int
-     *
-     */
     #[ORM\Column(name: 'id_bateau', type: 'integer', nullable: false)]
     private $idBateau;
 

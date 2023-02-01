@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Utilisateur
@@ -11,65 +14,36 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: 'utilisateur')]
 #[ORM\UniqueConstraint(name: 'email', columns: ['email'])]
 #[ORM\Entity]
-class Utilisateur
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
 {
-    /**
-     * @var int
-     *
-     */
     #[ORM\Column(name: 'id_utilisateur', type: 'integer', nullable: false)]
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     private $idUtilisateur;
 
-    /**
-     * @var string
-     *
-     */
     #[ORM\Column(name: 'email', type: 'string', length: 50, nullable: false)]
     private $email;
 
-    /**
-     * @var string
-     *
-     */
     #[ORM\Column(name: 'nom', type: 'string', length: 50, nullable: false)]
     private $nom;
 
-    /**
-     * @var string
-     *
-     */
     #[ORM\Column(name: 'prenom', type: 'string', length: 50, nullable: false)]
     private $prenom;
 
-    /**
-     * @var string
-     *
-     */
     #[ORM\Column(name: 'adresse', type: 'string', length: 50, nullable: false)]
     private $adresse;
 
-    /**
-     * @var string|null
-     *
-     */
     #[ORM\Column(name: 'ville', type: 'string', length: 50, nullable: true)]
     private $ville;
 
-    /**
-     * @var string
-     *
-     */
     #[ORM\Column(name: 'code_postal', type: 'string', length: 5, nullable: false)]
     private $codePostal;
 
-    /**
-     * @var string
-     *
-     */
     #[ORM\Column(name: 'password', type: 'string', length: 250, nullable: false)]
     private $password;
+
+    private array $roles = [];
 
     public function getIdUtilisateur(): ?int
     {
@@ -160,5 +134,27 @@ class Utilisateur
         return $this;
     }
 
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // garantir au moins le rôle ROLE_USER aux utilisateurs
+        $roles[] = 'ROLE_USER';
 
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+	
+	public function eraseCredentials() {
+      	}
+	
+	public function getUserIdentifier(): string 
+          {
+              return (string)$this->email;
+      	}
 }

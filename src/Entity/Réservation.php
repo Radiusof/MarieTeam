@@ -4,43 +4,23 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Réservation
- *
- */
 #[ORM\Table(name: 'réservation')]
 #[ORM\Index(name: 'id_traversee', columns: ['id_traversee'])]
 #[ORM\Index(name: 'id_utilisateur', columns: ['id_utilisateur'])]
 #[ORM\Entity]
 class Réservation
 {
-    /**
-     * @var int
-     *
-     */
     #[ORM\Column(name: 'id_reservation', type: 'integer', nullable: false)]
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     private $idReservation;
 
-    /**
-     * @var float
-     *
-     */
     #[ORM\Column(name: 'montant_global', type: 'float', precision: 10, scale: 0, nullable: false)]
     private $montantGlobal;
 
-    /**
-     * @var int
-     *
-     */
     #[ORM\Column(name: 'id_traversee', type: 'integer', nullable: false)]
     private $idTraversee;
 
-    /**
-     * @var int
-     *
-     */
     #[ORM\Column(name: 'id_utilisateur', type: 'integer', nullable: false)]
     private $idUtilisateur;
 
