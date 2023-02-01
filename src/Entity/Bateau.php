@@ -13,33 +13,17 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity]
 class Bateau
 {
-    /**
-     * @var int
-     *
-     */
     #[ORM\Column(name: 'id_bateau', type: 'integer', nullable: false)]
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     private $idBateau;
 
-    /**
-     * @var string
-     *
-     */
     #[ORM\Column(name: 'libelle_bateau', type: 'string', length: 50, nullable: false)]
     private $libelleBateau;
 
-    /**
-     * @var float|null
-     *
-     */
     #[ORM\Column(name: 'longueur', type: 'float', precision: 10, scale: 0, nullable: true)]
     private $longueur;
 
-    /**
-     * @var float|null
-     *
-     */
     #[ORM\Column(name: 'largeur', type: 'float', precision: 10, scale: 0, nullable: true)]
     private $largeur;
 

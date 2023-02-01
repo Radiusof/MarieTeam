@@ -4,10 +4,6 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Tarif
- *
- */
 #[ORM\Table(name: 'tarif')]
 #[ORM\Index(name: 'id_periode', columns: ['id_periode'])]
 #[ORM\Index(name: 'id_liaison', columns: ['id_liaison'])]
@@ -15,40 +11,20 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity]
 class Tarif
 {
-    /**
-     * @var int
-     *
-     */
     #[ORM\Column(name: 'id_tarif', type: 'integer', nullable: false)]
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     private $idTarif;
 
-    /**
-     * @var float
-     *
-     */
     #[ORM\Column(name: 'prix', type: 'float', precision: 10, scale: 0, nullable: false)]
     private $prix;
 
-    /**
-     * @var int
-     *
-     */
     #[ORM\Column(name: 'id_liaison', type: 'integer', nullable: false)]
     private $idLiaison;
 
-    /**
-     * @var int
-     *
-     */
     #[ORM\Column(name: 'id_periode', type: 'integer', nullable: false)]
     private $idPeriode;
 
-    /**
-     * @var int
-     *
-     */
     #[ORM\Column(name: 'id_type', type: 'integer', nullable: false)]
     private $idType;
 

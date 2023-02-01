@@ -4,49 +4,25 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Liaison
- *
- */
 #[ORM\Table(name: 'liaison')]
 #[ORM\Index(name: 'id_secteur', columns: ['id_secteur'])]
 #[ORM\Entity]
 class Liaison
 {
-    /**
-     * @var int
-     *
-     */
     #[ORM\Column(name: 'id_liaison', type: 'integer', nullable: false)]
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     private $idLiaison;
 
-    /**
-     * @var float
-     *
-     */
     #[ORM\Column(name: 'distance', type: 'float', precision: 10, scale: 0, nullable: false)]
     private $distance;
 
-    /**
-     * @var string
-     *
-     */
     #[ORM\Column(name: 'port_depart', type: 'string', length: 50, nullable: false)]
     private $portDepart;
 
-    /**
-     * @var string
-     *
-     */
     #[ORM\Column(name: 'port_arrivee', type: 'string', length: 50, nullable: false)]
     private $portArrivee;
 
-    /**
-     * @var int
-     *
-     */
     #[ORM\Column(name: 'id_secteur', type: 'integer', nullable: false)]
     private $idSecteur;
 

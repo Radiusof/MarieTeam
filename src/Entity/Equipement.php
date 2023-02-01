@@ -4,28 +4,16 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Equipement
- *
- */
 #[ORM\Table(name: 'equipement')]
 #[ORM\UniqueConstraint(name: 'libelle_equipement', columns: ['libelle_equipement'])]
 #[ORM\Entity]
 class Equipement
 {
-    /**
-     * @var int
-     *
-     */
     #[ORM\Column(name: 'id_equipement', type: 'integer', nullable: false)]
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     private $idEquipement;
 
-    /**
-     * @var string
-     *
-     */
     #[ORM\Column(name: 'libelle_equipement', type: 'string', length: 50, nullable: false)]
     private $libelleEquipement;
 
