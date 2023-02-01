@@ -13,7 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
-use Symfony\Component\Validator\Constraints\Type;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class RegistrationFormType extends AbstractType
 {
@@ -21,8 +21,9 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('password', RepeatedType::class, [
+            ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
+                'mapped' => false,
                 'invalid_message' => 'The password fields must match.',
                 'options' => ['attr' => ['class' => 'password-field']],
                 'first_options'  => ['label' => 'Password'],
@@ -50,8 +51,8 @@ class RegistrationFormType extends AbstractType
                         'min' => 5,
                         'max' => 5
                     ]),
-                    new Type([
-                        'type' => 'integer'
+                    new Regex([
+                        'pattern' => '/\d+/'
                     ])
                 ],
             ])

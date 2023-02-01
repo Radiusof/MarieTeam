@@ -4,10 +4,6 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Bateau
- *
- */
 #[ORM\Table(name: 'bateau')]
 #[ORM\UniqueConstraint(name: 'libelle_bateau', columns: ['libelle_bateau'])]
 #[ORM\Entity]
@@ -27,17 +23,9 @@ class Bateau
     #[ORM\Column(name: 'largeur', type: 'float', precision: 10, scale: 0, nullable: true)]
     private $largeur;
 
-    /**
-     * @var int|null
-     *
-     */
     #[ORM\Column(name: 'vitesse', type: 'integer', nullable: true)]
     private $vitesse;
 
-    /**
-     * @var int
-     *
-     */
     #[ORM\Column(name: 'capaciteMaximum', type: 'integer', nullable: false)]
     private $capacitemaximum;
 
