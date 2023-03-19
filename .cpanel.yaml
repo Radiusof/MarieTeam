@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Define your deployment directory
+DEPLOY_DIR=/path/to/deploy/directory
+
+# Go to your deployment directory
+cd $DEPLOY_DIR
+
+# Pull the latest code from the Git repository
+git pull origin main
+
+# Install dependencies using Composer
+composer install
+
+# Clear the Symfony cache
+php bin/console cache:clear --env=prod
+
+# Restart the web server
+service apache2 restart
