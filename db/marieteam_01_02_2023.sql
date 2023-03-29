@@ -20,6 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `marieteam`
 --
+USE c2077914c_marieteam;
 
 -- --------------------------------------------------------
 
@@ -174,7 +175,7 @@ CREATE TABLE `equipement` (
 --
 
 INSERT INTO `equipement` (`id_equipement`, `libelle_equipement`) VALUES
-(1, 'Acc?s Handicap'),
+(1, 'Acces Handicap'),
 (2, 'Bar'),
 (3, 'Pont Promenade'),
 (4, 'Salon Vid'),
@@ -455,8 +456,8 @@ CREATE TABLE `type` (
 
 INSERT INTO `type` (`id_categorie`, `id_type`, `libelle_type`) VALUES
 (1, 1, 'A1 - Adulte'),
-(1, 2, 'A2 - Junior 8 ? 18 ans'),
-(1, 3, 'A3 - Enfant 0 ? 7 ans'),
+(1, 2, 'A2 - Junior 8 - 18 ans'),
+(1, 3, 'A3 - Enfant 0 - 7 ans'),
 (2, 4, 'B1 - Voiture long.inf.4m'),
 (2, 5, 'B2 - Voiture long.inf.5m '),
 (3, 6, 'C1 - Fourgon'),
